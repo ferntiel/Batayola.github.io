@@ -5,40 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Portfolio Website</title>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-            Fern <span>Batayola</span>
-        </div>
+    <!-- Navigation -->
+    <nav class="desktop-nav">
         <div class="nav-container">
-            <div class="links">
-                <a href="#home" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Introduction</a>
-                <a href="#skills" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">Tech Stack</a>
-                <a href="#academic" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">Academic Journey</a>
-                <a href="#interests" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">Game Dev</a>
-                <a href="#gaming" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">Gaming Inspirations</a>
+            <div class="logo">
+                <a href="#home">FB</a>
             </div>
-        </div>
-        <button class="hamburg" onclick="hamburg()">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-        <div class="dropdown">
             <div class="links">
                 <a href="#home">Introduction</a>
-                <a href="#skills">Tech Stack</a>
+                <a href="#tech-stack">Tech Stack</a>
                 <a href="#academic">Academic Journey</a>
-                <a href="#interests">Game Dev</a>
+                <a href="#gamedev">Game Development</a>
                 <a href="#gaming">Gaming Inspirations</a>
-                <button class="cancel" onclick="cancel()">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <!-- Hamburger Button -->
+        <button class="hamburger" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <nav>
+                <ul>
+                    <li><a href="#home">Introduction</a></li>
+                    <li><a href="#tech-stack">Tech Stack</a></li>
+                    <li><a href="#academic">Academic Journey</a></li>
+                    <li><a href="#gamedev">Game Development</a></li>
+                    <li><a href="#gaming">Gaming Inspirations</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
     <!-- Introduction Section -->
     <section id="home" class="section-padding">
@@ -100,102 +106,68 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section-padding">
+    <!-- Tech Stack Section -->
+    <section id="tech-stack" class="section-padding">
         <div class="section-container">
-            <h2 class="section-title" data-aos="fade-down" data-aos-duration="1000">My Tech Stack</h2>
-            <div class="skills-grid">
-                <!-- JavaScript Card -->
-                <div class="skill-card" data-aos="fade-up">
-                    <i class="fab fa-js"></i>
-                    <h3>JavaScript</h3>
-                    <p>Learning the basics of web interactivity and simple CRUD operations</p>
-                    <div class="skill-info">
-                        <div class="skill-level">
-                            <span class="level-tag">Beginner</span>
-                            <div class="level-bar">
-                                <div class="level-fill"></div>
-                            </div>
+            <h2 class="section-title" data-aos="fade-down" data-aos-duration="1000">Tech Stack</h2>
+            <div class="tech-grid">
+                <!-- Programming Languages -->
+                <div class="tech-category" data-aos="fade-up">
+                    <h3>Programming Languages</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
                         </div>
-                        <div class="skill-tags">
-                            <span class="tag">Class Projects</span>
-                            <span class="tag">Learning</span>
+                        <div class="tech-item">
+                            <i class="fab fa-java"></i>
+                            <span>Java</span>
                         </div>
-                    </div>
-                </div>
-
-                <!-- HTML Card -->
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fab fa-html5"></i>
-                    <h3>HTML5</h3>
-                    <p>Creating basic web pages and understanding structure</p>
-                    <div class="skill-info">
-                        <div class="skill-level">
-                            <span class="level-tag">Beginner</span>
-                            <div class="level-bar">
-                                <div class="level-fill"></div>
-                            </div>
+                        <div class="tech-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
                         </div>
-                        <div class="skill-tags">
-                            <span class="tag">Class Projects</span>
-                            <span class="tag">Learning</span>
+                        <div class="tech-item">
+                            <i class="fas fa-code"></i>
+                            <span>C++</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- CSS Card -->
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
-                    <i class="fab fa-css3-alt"></i>
-                    <h3>CSS3</h3>
-                    <p>Learning to style websites and make them responsive</p>
-                    <div class="skill-info">
-                        <div class="skill-level">
-                            <span class="level-tag">Beginner</span>
-                            <div class="level-bar">
-                                <div class="level-fill"></div>
-                            </div>
+                <!-- Web Technologies -->
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Web Technologies</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
                         </div>
-                        <div class="skill-tags">
-                            <span class="tag">Class Projects</span>
-                            <span class="tag">Learning</span>
+                        <div class="tech-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Python Card -->
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
-                    <i class="fab fa-python"></i>
-                    <h3>Python</h3>
-                    <p>Starting with basic programming concepts</p>
-                    <div class="skill-info">
-                        <div class="skill-level">
-                            <span class="level-tag">Beginner</span>
-                            <div class="level-bar">
-                                <div class="level-fill"></div>
-                            </div>
-                        </div>
-                        <div class="skill-tags">
-                            <span class="tag">Class Projects</span>
-                            <span class="tag">Learning</span>
+                        <div class="tech-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Java Card -->
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="800">
-                    <i class="fab fa-java"></i>
-                    <h3>Java</h3>
-                    <p>Learning object-oriented programming basics</p>
-                    <div class="skill-info">
-                        <div class="skill-level">
-                            <span class="level-tag">Beginner</span>
-                            <div class="level-bar">
-                                <div class="level-fill"></div>
-                            </div>
+                <!-- Tools & Frameworks -->
+                <div class="tech-category" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Tools & Frameworks</h3>
+                    <div class="tech-items">
+                        <div class="tech-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
                         </div>
-                        <div class="skill-tags">
-                            <span class="tag">Class Projects</span>
-                            <span class="tag">Learning</span>
+                        <div class="tech-item">
+                            <i class="fab fa-unity"></i>
+                            <span>Unity</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-database"></i>
+                            <span>MySQL</span>
                         </div>
                     </div>
                 </div>
@@ -205,159 +177,85 @@
 
     <!-- Academic Journey Section -->
     <section id="academic" class="section-padding">
-        <div class="container">
-            <div class="academic-journey">
-                <h2>Academic Journey</h2>
-                <div class="journey-grid">
-                    <div class="journey-card">
-                        <h3>Computer Science</h3>
-                        <p>Second-year student pursuing excellence in software development and computer science fundamentals.</p>
-                        <ul class="achievement-list">
-                            <li>GWA: 1.28</li>
-                            <li>Dean's Lister</li>
-                            <li>Active participant in coding competitions</li>
-                        </ul>
-                        <div class="progress-wrapper">
-                            <div class="progress-label">Academic Progress</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 50%"></div>
-                            </div>
-                            <div class="progress-status">Year 2 of 4</div>
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-down" data-aos-duration="1000">Academic Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h3>BS Computer Science</h3>
+                        <h4>University of Santo Tomas</h4>
+                        <p class="timeline-date">2022 - Present</p>
+                        <div class="achievement-pills">
+                            <span class="pill">Dean's List AY 2023-2024</span>
+                            <span class="pill">GWA: 1.28</span>
                         </div>
-                    </div>
-                    <div class="journey-card">
-                        <h3>Technical Skills</h3>
-                        <p>Continuously expanding knowledge in various programming languages and technologies.</p>
-                        <ul class="achievement-list">
-                            <li>Proficient in Python, Java, and C++</li>
-                            <li>Web development with HTML, CSS, JavaScript</li>
-                            <li>Database management and SQL</li>
+                        <ul class="timeline-details">
+                            <li>Specializing in Game Development</li>
+                            <li>Active member of UST Game Development Organization</li>
+                            <li>Participated in game development workshops and hackathons</li>
                         </ul>
-                        <div class="skill-badges">
-                            <span class="skill-badge">Python</span>
-                            <span class="skill-badge">Java</span>
-                            <span class="skill-badge">C++</span>
-                            <span class="skill-badge">Web Dev</span>
-                        </div>
-                    </div>
-                    <div class="journey-card">
-                        <h3>Projects & Activities</h3>
-                        <p>Engaging in practical applications of computer science knowledge.</p>
-                        <ul class="achievement-list">
-                            <li>Personal portfolio website development</li>
-                            <li>Academic research projects</li>
-                            <li>Collaborative coding initiatives</li>
-                        </ul>
-                        <div class="project-status">
-                            <div class="status-item">
-                                <span class="status-label">Completed</span>
-                                <span class="status-count">5</span>
-                            </div>
-                            <div class="status-item">
-                                <span class="status-label">In Progress</span>
-                                <span class="status-count">2</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Game Development Interests -->
-    <section id="interests" class="section-padding">
-        <div class="container">
-            <h2 class="section-title">Game Development Interests</h2>
+    <!-- Game Development Section -->
+    <section id="gamedev" class="section-padding">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-down" data-aos-duration="1000">Game Development</h2>
             <div class="gamedev-grid">
-                <div class="gamedev-card">
+                <div class="gamedev-card" data-aos="fade-up">
                     <div class="gamedev-header">
-                        <div class="gamedev-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Programming</h3>
+                        <h3>Current Projects</h3>
                     </div>
                     <div class="gamedev-content">
-                        <p>Focusing on game mechanics and systems programming</p>
-                        <ul class="interest-list">
-                            <li>Game engine architecture</li>
-                            <li>Physics implementation</li>
-                            <li>AI behavior systems</li>
+                        <ul>
+                            <li>2D Platformer Game using Unity</li>
+                            <li>Interactive Story Game in Python</li>
+                            <li>Mobile Puzzle Game Prototype</li>
                         </ul>
-                        <div class="tech-stack">
-                            <span class="tech-item">Unity</span>
-                            <span class="tech-item">C#</span>
-                            <span class="tech-item">Python</span>
-                        </div>
                     </div>
                 </div>
 
-                <div class="gamedev-card">
+                <div class="gamedev-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="gamedev-header">
-                        <div class="gamedev-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h3>Game Design</h3>
+                        <h3>Skills & Interests</h3>
                     </div>
                     <div class="gamedev-content">
-                        <p>Learning the principles of engaging game design</p>
-                        <ul class="interest-list">
-                            <li>Level design fundamentals</li>
-                            <li>Game balance mechanics</li>
-                            <li>Player experience optimization</li>
+                        <ul>
+                            <li>Game Design & Mechanics</li>
+                            <li>Level Design</li>
+                            <li>Character Development</li>
+                            <li>UI/UX for Games</li>
                         </ul>
-                        <div class="learning-progress">
-                            <div class="progress-item">
-                                <span>Design Theory</span>
-                                <div class="progress-line"><div style="width: 75%"></div></div>
-                            </div>
-                            <div class="progress-item">
-                                <span>Practical Skills</span>
-                                <div class="progress-line"><div style="width: 60%"></div></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <div class="gamedev-card">
+                <div class="gamedev-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="gamedev-header">
-                        <div class="gamedev-icon">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
-                        <h3>Project Goals</h3>
+                        <h3>Learning Goals</h3>
                     </div>
                     <div class="gamedev-content">
-                        <p>Working towards creating complete game projects</p>
-                        <ul class="interest-list">
-                            <li>2D platformer development</li>
-                            <li>Mobile game prototypes</li>
-                            <li>Interactive storytelling</li>
+                        <ul>
+                            <li>Advanced Unity Development</li>
+                            <li>3D Game Development</li>
+                            <li>Game AI Programming</li>
+                            <li>Multiplayer Game Development</li>
                         </ul>
-                        <div class="milestone-tracker">
-                            <div class="milestone">
-                                <i class="fas fa-check-circle"></i>
-                                <span>Basic Mechanics</span>
-                            </div>
-                            <div class="milestone">
-                                <i class="fas fa-spinner fa-spin"></i>
-                                <span>First Playable</span>
-                            </div>
-                            <div class="milestone">
-                                <i class="far fa-circle"></i>
-                                <span>Full Release</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gaming Section -->
-    <section id="gaming" class="gaming-section section-padding">
-        <div class="container">
-            <h2 class="section-title">Gaming Inspirations</h2>
+    <!-- Gaming Inspirations Section -->
+    <section id="gaming" class="section-padding">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-down" data-aos-duration="1000">Gaming Inspirations</h2>
             <div class="gaming-grid">
-                <div class="game-card">
+                <!-- Valorant Card -->
+                <div class="game-card" data-aos="fade-up">
                     <div class="game-header">
                         <div class="game-icon">
                             <i class="fas fa-crosshairs"></i>
@@ -367,7 +265,9 @@
                             <span>Tactical Shooter</span>
                         </div>
                     </div>
-                    <p class="game-description">A competitive tactical shooter that combines precise gunplay with unique agent abilities.</p>
+                    <p class="game-description">
+                        A competitive tactical shooter that combines precise gunplay with unique agent abilities.
+                    </p>
                     <ul class="game-features">
                         <li>Strategic team-based gameplay</li>
                         <li>Competitive ranked system</li>
@@ -376,42 +276,70 @@
                     <span class="game-tag">Currently Playing</span>
                 </div>
 
-                <div class="game-card">
+                <!-- League of Legends Card -->
+                <div class="game-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="game-header">
                         <div class="game-icon">
-                            <i class="fas fa-gamepad"></i>
+                            <i class="fas fa-chess"></i>
                         </div>
                         <div class="game-title">
-                            <h3>Zenless Zone Zero</h3>
+                            <h3>League of Legends</h3>
+                            <span>MOBA</span>
+                        </div>
+                    </div>
+                    <p class="game-description">
+                        A strategic team-based game that requires skill, coordination, and tactical thinking.
+                    </p>
+                    <ul class="game-features">
+                        <li>Complex champion mechanics</li>
+                        <li>Team strategy and coordination</li>
+                        <li>Competitive esports scene</li>
+                    </ul>
+                    <span class="game-tag">Favorite</span>
+                </div>
+
+                <!-- Minecraft Card -->
+                <div class="game-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <div class="game-title">
+                            <h3>Minecraft</h3>
+                            <span>Sandbox</span>
+                        </div>
+                    </div>
+                    <p class="game-description">
+                        An open-world sandbox game that encourages creativity and exploration.
+                    </p>
+                    <ul class="game-features">
+                        <li>Endless creative possibilities</li>
+                        <li>Survival and building mechanics</li>
+                        <li>Modding community</li>
+                    </ul>
+                    <span class="game-tag">Creative Inspiration</span>
+                </div>
+
+                <!-- Genshin Impact Card -->
+                <div class="game-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="game-title">
+                            <h3>Genshin Impact</h3>
                             <span>Action RPG</span>
                         </div>
                     </div>
-                    <p class="game-description">An urban fantasy action RPG set in a post-apocalyptic metropolitan city.</p>
+                    <p class="game-description">
+                        An open-world action RPG with beautiful visuals and engaging combat.
+                    </p>
                     <ul class="game-features">
-                        <li>Stylish combat mechanics</li>
-                        <li>Unique character designs</li>
-                        <li>Immersive storyline</li>
-                    </ul>
-                    <span class="game-tag">Anticipated Release</span>
-                </div>
-
-                <div class="game-card">
-                    <div class="game-header">
-                        <div class="game-icon">
-                            <i class="fas fa-wave-square"></i>
-                        </div>
-                        <div class="game-title">
-                            <h3>Wuthering Waves</h3>
-                            <span>Open World RPG</span>
-                        </div>
-                    </div>
-                    <p class="game-description">An open-world action RPG featuring stunning visuals and dynamic combat.</p>
-                    <ul class="game-features">
+                        <li>Elemental combat system</li>
                         <li>Vast open world exploration</li>
-                        <li>Deep character progression</li>
-                        <li>Engaging combat system</li>
+                        <li>Regular content updates</li>
                     </ul>
-                    <span class="game-tag">Upcoming Release</span>
+                    <span class="game-tag">Adventure</span>
                 </div>
             </div>
         </div>
