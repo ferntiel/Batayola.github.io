@@ -1,69 +1,52 @@
-// Mobile menu functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const menuItems = document.querySelectorAll('.mobile-menu a');
-    const body = document.body;
+// Mobile menu toggle functions
+function hamburg(){
+    const navbar = document.querySelector('.dropdown');
+    navbar.style.transform = 'translateY(0px)';
+}
 
-    // Toggle menu
-    if (hamburger) {
-        hamburger.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('Hamburger clicked'); // Debug log
-            mobileMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-            body.classList.toggle('menu-open');
-        });
+function cancel(){
+    const navbar = document.querySelector('.dropdown');
+    navbar.style.transform = 'translateY(-500px)';
+}
+
+// Text content for the typewriter effect
+const texts = [
+    "DEVELOPER",
+    "CS STUDENT",
+    "PROGRAMMER"
+];
+
+let speed = 100;
+
+const textElements = document.querySelector('.typewriter-text');
+
+let textIndex = 0;
+let characterIndex = 0;
+
+// Function to type text character by character
+function typeWriter(){
+    if(characterIndex < texts[textIndex].length){
+        textElements.innerHTML += texts[textIndex].charAt(characterIndex);
+        characterIndex++;
+        setTimeout(typeWriter, speed);
     }
+    else{
+        setTimeout(eraseText, 1000);
+    }
+}
 
-    // Close menu when clicking a link
-    menuItems.forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            // Close menu
-            mobileMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-            body.classList.remove('menu-open');
+// Function to erase text character by character
+function eraseText(){
+    if(textElements.innerHTML.length > 0){
+        textElements.innerHTML = textElements.innerHTML.slice(0, -1);
+        setTimeout(eraseText, 50);
+    }
+    else{
+        textIndex = (textIndex + 1) % texts.length;
+        characterIndex = 0;
+        setTimeout(typeWriter, 500);
+    }
+}
 
-            // Scroll to target
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (mobileMenu.classList.contains('active') && 
-            !mobileMenu.contains(e.target) && 
-            !hamburger.contains(e.target)) {
-            mobileMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-            body.classList.remove('menu-open');
-        }
-    });
-
-    // Prevent menu close when clicking inside menu
-    mobileMenu.addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
-
-    // Close menu on resize
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            mobileMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-            body.classList.remove('menu-open');
-        }
-    });
-
-    // Debug log to confirm script is running
-    console.log('Mobile menu script loaded');
-}); 
+// Start the typewriter effect when the page loads
+window.onload = typeWriter;
