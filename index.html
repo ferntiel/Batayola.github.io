@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Portfolio Website</title>
 </head>
 <body>
@@ -23,7 +23,9 @@
                 <a href="#gaming" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">Gaming Inspirations</a>
             </div>
         </div>
-        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        <button class="hamburg" onclick="hamburg()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
         <div class="dropdown">
             <div class="links">
                 <a href="#home">Introduction</a>
@@ -31,7 +33,9 @@
                 <a href="#academic">Academic Journey</a>
                 <a href="#interests">Game Dev</a>
                 <a href="#gaming">Gaming Inspirations</a>
-                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+                <button class="cancel" onclick="cancel()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
         </div>
     </nav>
