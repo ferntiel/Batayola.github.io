@@ -9,35 +9,47 @@
     <title>Portfolio Website</title>
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Navigation -->
     <nav>
-        <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-            Fern <span>Batayola</span>
+        <div class="logo">Fern<span>B.</span></div>
+        <div class="nav-links">
+            <a href="#introduction" class="nav-item">Introduction</a>
+            <a href="#tech-stack" class="nav-item">Tech Stack</a>
+            <a href="#academic-journey" class="nav-item">Academic Journey</a>
+            <a href="#game-dev" class="nav-item">Game Dev</a>
+            <a href="#gaming-inspirations" class="nav-item">Gaming Inspirations</a>
         </div>
-        <div class="nav-container">
-            <div class="links">
-                <a href="#home" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Introduction</a>
-                <a href="#skills" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">Tech Stack</a>
-                <a href="#academic" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">Academic Journey</a>
-                <a href="#interests" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">Game Dev</a>
-                <a href="#gaming" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">Gaming Inspirations</a>
-            </div>
-        </div>
-        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-        <div class="dropdown">
-            <div class="links">
-                <a href="#home">Introduction</a>
-                <a href="#skills">Tech Stack</a>
-                <a href="#academic">Academic Journey</a>
-                <a href="#interests">Game Dev</a>
-                <a href="#gaming">Gaming Inspirations</a>
-                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+        <button class="hamburger" aria-label="Menu">
+            <i class="fas fa-bars menu-icon"></i>
+        </button>
+        <div class="mobile-menu">
+            <div class="mobile-nav-links">
+                <a href="#introduction" class="mobile-nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Introduction</span>
+                </a>
+                <a href="#tech-stack" class="mobile-nav-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>Tech Stack</span>
+                </a>
+                <a href="#academic-journey" class="mobile-nav-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Academic Journey</span>
+                </a>
+                <a href="#game-dev" class="mobile-nav-item">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Game Dev</span>
+                </a>
+                <a href="#gaming-inspirations" class="mobile-nav-item">
+                    <i class="fas fa-star"></i>
+                    <span>Gaming Inspirations</span>
+                </a>
             </div>
         </div>
     </nav>
 
     <!-- Introduction Section -->
-    <section id="home" class="section-padding">
+    <section id="introduction" class="section-padding">
         <div class="container">
             <div class="main-container">
                 <div class="content">
@@ -97,7 +109,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section-padding">
+    <section id="tech-stack" class="section-padding">
         <div class="section-container">
             <h2 class="section-title" data-aos="fade-down" data-aos-duration="1000">My Tech Stack</h2>
             <div class="skills-grid">
@@ -200,7 +212,7 @@
     </section>
 
     <!-- Academic Journey Section -->
-    <section id="academic" class="section-padding">
+    <section id="academic-journey" class="section-padding">
         <div class="container">
             <div class="academic-journey">
                 <h2>Academic Journey</h2>
@@ -261,7 +273,7 @@
     </section>
 
     <!-- Game Development Interests -->
-    <section id="interests" class="section-padding">
+    <section id="game-dev" class="section-padding">
         <div class="container">
             <h2 class="section-title">Game Development Interests</h2>
             <div class="gamedev-grid">
@@ -349,7 +361,7 @@
     </section>
 
     <!-- Gaming Section -->
-    <section id="gaming" class="gaming-section section-padding">
+    <section id="gaming-inspirations" class="gaming-section section-padding">
         <div class="container">
             <h2 class="section-title">Gaming Inspirations</h2>
             <div class="gaming-grid">
@@ -418,6 +430,79 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({offset:0});
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const menuIcon = document.querySelector('.menu-icon');
+            const body = document.body;
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.nav-item, .mobile-nav-item');
+
+            // Toggle mobile menu
+            hamburger.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+                body.classList.toggle('menu-open');
+                
+                if (mobileMenu.classList.contains('active')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                } else {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target) && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    body.classList.remove('menu-open');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when clicking on a link
+            const mobileLinks = document.querySelectorAll('.mobile-nav-item');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    body.classList.remove('menu-open');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                });
+            });
+
+            // Active section highlighting
+            function setActiveSection() {
+                let currentSection = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href').slice(1) === currentSection) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+
+            // Update active section on scroll
+            window.addEventListener('scroll', setActiveSection);
+            
+            // Set active section on page load
+            setActiveSection();
+        });
     </script>
 </body>
 </html> 
