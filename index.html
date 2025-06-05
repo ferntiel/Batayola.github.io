@@ -5,69 +5,416 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/style.css">
     <title>Portfolio Website</title>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-            Fernando <span>Batayola</span>
+            Fern <span>Batayola</span>
         </div>
         <div class="nav-container">
             <div class="links">
-                <a href="" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Home</a>
-                <a href="" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">Skills</a>
-                <a href="" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">Introduction</a>
-                <a href="" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">Services</a>
-                <a href="" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">Contact</a>
+                <a href="#home" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">Introduction</a>
+                <a href="#skills" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">Tech Stack</a>
+                <a href="#academic" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">Academic Journey</a>
+                <a href="#interests" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">Game Dev</a>
+                <a href="#gaming" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500">Gaming Inspirations</a>
             </div>
         </div>
         <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
         <div class="dropdown">
             <div class="links">
-                <a href="">Home</a>
-                <a href="">Skills</a>
-                <a href="">Introduction</a>
-                <a href="">Services</a>
-                <a href="">Contact</a>
+                <a href="#home">Introduction</a>
+                <a href="#skills">Tech Stack</a>
+                <a href="#academic">Academic Journey</a>
+                <a href="#interests">Game Dev</a>
+                <a href="#gaming">Gaming Inspirations</a>
                 <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-            </div>    
+            </div>
         </div>
     </nav>
-    <section>
-        <div class="main-container">
-            <div class="content">
-                <h1 data-aos="fade-right" data-aos-duration="1500" data-aos-delay="600">Hey I'm <span>Lucky</span></h1>
-                <div data-aos="fade-left" data-aos-duration="1500" data-aos-delay="800" class="typewriter">I'm a <span class="typewriter-text">future software engineer</span><label for="">|</label></div>
-                <p data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1000">Currently in my second year of Computer Science studies, focusing on software development, algorithms, and emerging technologies. I’m gaining hands-on experience through projects and self-study, working toward becoming a capable and adaptable developer.</p>
-                <div class="social-links">
-                    
-                    <a href="https://www.linkedin.com/in/fernando-batayola-4862362a7/">
-<i class="fa-brands fa-linkedin" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1200"></i>
-                    </a>
-                    
-                    <a href="https://github.com/ferntiel">
-<i class="fa-brands fa-github" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1300"></i>
-                    </a>
 
-                    <a href="https://web.facebook.com/ferntiel">
-<i class="fa-brands fa-facebook" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1400"></i>
-                    </a>
-                    
-                    <a href="https://x.com/ferntiel">
-<i class="fa-brands fa-twitter" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500"></i>
-                   </a>
-                    
+    <!-- Introduction Section -->
+    <section id="home" class="section-padding">
+        <div class="container">
+            <div class="main-container">
+                <div class="content">
+                    <div class="intro-wrapper">
+                        <h1 data-aos="fade-up" data-aos-duration="1000">Hi, I'm Fernando Batayola</h1>
+                        <div class="typewriter" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                            Second-year Computer Science Student
+                        </div>
+                        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                            Passionate about software development and creating innovative solutions. Currently exploring the world of programming and game development.
+                        </p>
+                        
+                        <div class="achievements-row" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                            <div class="achievement-pill combined">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <div class="achievement-details">
+                                    <span class="achievement-title">Academic Excellence</span>
+                                    <span class="achievement-subtitle">Dean's List Recipient, AY 2023-2024 First Semester</span>
+                                    <span class="achievement-gwa">General Weighted Average: 1.28</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cta-group" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                            <button onclick="window.location.href='#contact'">Get in Touch</button>
+                            <div class="social-links">
+                                <a href="https://github.com/Batayola" target="_blank" class="social-icon github">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/fernando-batayola" target="_blank" class="social-icon linkedin">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://www.facebook.com/fernandojr.batayola" target="_blank" class="social-icon facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.instagram.com/nandoobatayyola/" target="_blank" class="social-icon instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="1700">Hire Me</button>
-            </div>
-            <div class="image" data-aos="zoom-in" data-aos-duration="2000">
-               <img src="images/silly-dawg.jpg" alt="Silly dog">
-
+                
+                <div class="image-wrapper" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="image">
+                        <img src="images/silly-dawg.jpg" alt="Silly dog">
+                    </div>
+                    <div class="glow"></div>
+                    <div class="decoration decoration-1"></div>
+                    <div class="decoration decoration-2"></div>
+                    <div class="decoration decoration-3"></div>
+                </div>
             </div>
         </div>
     </section>
-    <script src="script.js"></script>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-down" data-aos-duration="1000">My Tech Stack</h2>
+            <div class="skills-grid">
+                <!-- JavaScript Card -->
+                <div class="skill-card" data-aos="fade-up">
+                    <i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                    <p>Learning the basics of web interactivity and simple CRUD operations</p>
+                    <div class="skill-info">
+                        <div class="skill-level">
+                            <span class="level-tag">Beginner</span>
+                            <div class="level-bar">
+                                <div class="level-fill"></div>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="tag">Class Projects</span>
+                            <span class="tag">Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HTML Card -->
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                    <p>Creating basic web pages and understanding structure</p>
+                    <div class="skill-info">
+                        <div class="skill-level">
+                            <span class="level-tag">Beginner</span>
+                            <div class="level-bar">
+                                <div class="level-fill"></div>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="tag">Class Projects</span>
+                            <span class="tag">Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSS Card -->
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                    <p>Learning to style websites and make them responsive</p>
+                    <div class="skill-info">
+                        <div class="skill-level">
+                            <span class="level-tag">Beginner</span>
+                            <div class="level-bar">
+                                <div class="level-fill"></div>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="tag">Class Projects</span>
+                            <span class="tag">Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Python Card -->
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
+                    <i class="fab fa-python"></i>
+                    <h3>Python</h3>
+                    <p>Starting with basic programming concepts</p>
+                    <div class="skill-info">
+                        <div class="skill-level">
+                            <span class="level-tag">Beginner</span>
+                            <div class="level-bar">
+                                <div class="level-fill"></div>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="tag">Class Projects</span>
+                            <span class="tag">Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Java Card -->
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="800">
+                    <i class="fab fa-java"></i>
+                    <h3>Java</h3>
+                    <p>Learning object-oriented programming basics</p>
+                    <div class="skill-info">
+                        <div class="skill-level">
+                            <span class="level-tag">Beginner</span>
+                            <div class="level-bar">
+                                <div class="level-fill"></div>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="tag">Class Projects</span>
+                            <span class="tag">Learning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Journey Section -->
+    <section id="academic" class="section-padding">
+        <div class="container">
+            <div class="academic-journey">
+                <h2>Academic Journey</h2>
+                <div class="journey-grid">
+                    <div class="journey-card">
+                        <h3>Computer Science</h3>
+                        <p>Second-year student pursuing excellence in software development and computer science fundamentals.</p>
+                        <ul class="achievement-list">
+                            <li>GWA: 1.28</li>
+                            <li>Dean's Lister</li>
+                            <li>Active participant in coding competitions</li>
+                        </ul>
+                        <div class="progress-wrapper">
+                            <div class="progress-label">Academic Progress</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 50%"></div>
+                            </div>
+                            <div class="progress-status">Year 2 of 4</div>
+                        </div>
+                    </div>
+                    <div class="journey-card">
+                        <h3>Technical Skills</h3>
+                        <p>Continuously expanding knowledge in various programming languages and technologies.</p>
+                        <ul class="achievement-list">
+                            <li>Proficient in Python, Java, and C++</li>
+                            <li>Web development with HTML, CSS, JavaScript</li>
+                            <li>Database management and SQL</li>
+                        </ul>
+                        <div class="skill-badges">
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">Java</span>
+                            <span class="skill-badge">C++</span>
+                            <span class="skill-badge">Web Dev</span>
+                        </div>
+                    </div>
+                    <div class="journey-card">
+                        <h3>Projects & Activities</h3>
+                        <p>Engaging in practical applications of computer science knowledge.</p>
+                        <ul class="achievement-list">
+                            <li>Personal portfolio website development</li>
+                            <li>Academic research projects</li>
+                            <li>Collaborative coding initiatives</li>
+                        </ul>
+                        <div class="project-status">
+                            <div class="status-item">
+                                <span class="status-label">Completed</span>
+                                <span class="status-count">5</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">In Progress</span>
+                                <span class="status-count">2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Development Interests -->
+    <section id="interests" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Game Development Interests</h2>
+            <div class="gamedev-grid">
+                <div class="gamedev-card">
+                    <div class="gamedev-header">
+                        <div class="gamedev-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Programming</h3>
+                    </div>
+                    <div class="gamedev-content">
+                        <p>Focusing on game mechanics and systems programming</p>
+                        <ul class="interest-list">
+                            <li>Game engine architecture</li>
+                            <li>Physics implementation</li>
+                            <li>AI behavior systems</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-item">Unity</span>
+                            <span class="tech-item">C#</span>
+                            <span class="tech-item">Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gamedev-card">
+                    <div class="gamedev-header">
+                        <div class="gamedev-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Game Design</h3>
+                    </div>
+                    <div class="gamedev-content">
+                        <p>Learning the principles of engaging game design</p>
+                        <ul class="interest-list">
+                            <li>Level design fundamentals</li>
+                            <li>Game balance mechanics</li>
+                            <li>Player experience optimization</li>
+                        </ul>
+                        <div class="learning-progress">
+                            <div class="progress-item">
+                                <span>Design Theory</span>
+                                <div class="progress-line"><div style="width: 75%"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <span>Practical Skills</span>
+                                <div class="progress-line"><div style="width: 60%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gamedev-card">
+                    <div class="gamedev-header">
+                        <div class="gamedev-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3>Project Goals</h3>
+                    </div>
+                    <div class="gamedev-content">
+                        <p>Working towards creating complete game projects</p>
+                        <ul class="interest-list">
+                            <li>2D platformer development</li>
+                            <li>Mobile game prototypes</li>
+                            <li>Interactive storytelling</li>
+                        </ul>
+                        <div class="milestone-tracker">
+                            <div class="milestone">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Basic Mechanics</span>
+                            </div>
+                            <div class="milestone">
+                                <i class="fas fa-spinner fa-spin"></i>
+                                <span>First Playable</span>
+                            </div>
+                            <div class="milestone">
+                                <i class="far fa-circle"></i>
+                                <span>Full Release</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gaming Section -->
+    <section id="gaming" class="gaming-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Gaming Inspirations</h2>
+            <div class="gaming-grid">
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <i class="fas fa-crosshairs"></i>
+                        </div>
+                        <div class="game-title">
+                            <h3>Valorant</h3>
+                            <span>Tactical Shooter</span>
+                        </div>
+                    </div>
+                    <p class="game-description">A competitive tactical shooter that combines precise gunplay with unique agent abilities.</p>
+                    <ul class="game-features">
+                        <li>Strategic team-based gameplay</li>
+                        <li>Competitive ranked system</li>
+                        <li>Regular updates and new content</li>
+                    </ul>
+                    <span class="game-tag">Currently Playing</span>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="game-title">
+                            <h3>Zenless Zone Zero</h3>
+                            <span>Action RPG</span>
+                        </div>
+                    </div>
+                    <p class="game-description">An urban fantasy action RPG set in a post-apocalyptic metropolitan city.</p>
+                    <ul class="game-features">
+                        <li>Stylish combat mechanics</li>
+                        <li>Unique character designs</li>
+                        <li>Immersive storyline</li>
+                    </ul>
+                    <span class="game-tag">Anticipated Release</span>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-header">
+                        <div class="game-icon">
+                            <i class="fas fa-wave-square"></i>
+                        </div>
+                        <div class="game-title">
+                            <h3>Wuthering Waves</h3>
+                            <span>Open World RPG</span>
+                        </div>
+                    </div>
+                    <p class="game-description">An open-world action RPG featuring stunning visuals and dynamic combat.</p>
+                    <ul class="game-features">
+                        <li>Vast open world exploration</li>
+                        <li>Deep character progression</li>
+                        <li>Engaging combat system</li>
+                    </ul>
+                    <span class="game-tag">Upcoming Release</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({offset:0});
