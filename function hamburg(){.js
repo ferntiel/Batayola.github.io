@@ -1,37 +1,51 @@
 // Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const dropdown = document.querySelector('.dropdown');
-    const menuLinks = document.querySelectorAll('.dropdown .links a');
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const menuItems = document.querySelectorAll('.mobile-menu a');
+    const body = document.body;
 
-    // Toggle menu when hamburger is clicked
-    window.hamburg = function() {
-        dropdown.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-    }
+    // Toggle menu
+    hamburger.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+        body.classList.toggle('menu-open');
+    });
 
-    // Close menu when X is clicked
-    window.cancel = function() {
-        dropdown.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scrolling
-    }
-
-    // Close menu when a link is clicked
-    menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            dropdown.classList.remove('active');
-            document.body.style.overflow = '';
+    // Close menu when clicking a link
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            body.classList.remove('menu-open');
         });
     });
 
     // Close menu when clicking outside
     document.addEventListener('click', function(event) {
-        const isClickInsideMenu = dropdown.contains(event.target);
-        const isClickOnHamburger = event.target.closest('.hamburg');
-        const isMenuActive = dropdown.classList.contains('active');
-        
-        if (isMenuActive && !isClickInsideMenu && !isClickOnHamburger) {
-            cancel();
+        if (!mobileMenu.contains(event.target) && !hamburger.contains(event.target)) {
+            mobileMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            body.classList.remove('menu-open');
         }
+    });
+
+    // Prevent clicks inside menu from closing it
+    mobileMenu.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+
+    // Smooth scroll for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 });
 
