@@ -1,3 +1,4 @@
+// Mobile menu toggle functions
 function hamburg(){
     const navbar = document.querySelector('.dropdown');
     navbar.style.transform = 'translateY(0px)';
@@ -8,9 +9,10 @@ function cancel(){
     navbar.style.transform = 'translateY(-500px)';
 }
 
+// Text content for the typewriter effect
 const texts = [
     "DEVELOPER",
-    "YOUTUBER",
+    "CS STUDENT",
     "PROGRAMMER"
 ];
 
@@ -21,6 +23,7 @@ const textElements = document.querySelector('.typewriter-text');
 let textIndex = 0;
 let characterIndex = 0;
 
+// Function to type text character by character
 function typeWriter(){
     if(characterIndex < texts[textIndex].length){
         textElements.innerHTML += texts[textIndex].charAt(characterIndex);
@@ -32,6 +35,7 @@ function typeWriter(){
     }
 }
 
+// Function to erase text character by character
 function eraseText(){
     if(textElements.innerHTML.length > 0){
         textElements.innerHTML = textElements.innerHTML.slice(0, -1);
@@ -44,4 +48,5 @@ function eraseText(){
     }
 }
 
+// Start the typewriter effect when the page loads
 window.onload = typeWriter;
