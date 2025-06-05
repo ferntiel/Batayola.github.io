@@ -5,21 +5,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Toggle menu when hamburger is clicked
     window.hamburg = function() {
-        dropdown.style.transform = 'translateY(0)';
+        dropdown.classList.add('active');
         document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
     }
 
     // Close menu when X is clicked
     window.cancel = function() {
-        dropdown.style.transform = 'translateY(-100%)';
+        dropdown.classList.remove('active');
         document.body.style.overflow = ''; // Restore scrolling
     }
 
     // Close menu when a link is clicked
     menuLinks.forEach(link => {
         link.addEventListener('click', () => {
-            cancel();
+            dropdown.classList.remove('active');
+            document.body.style.overflow = '';
         });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const isClickInsideMenu = dropdown.contains(event.target);
+        const isClickOnHamburger = event.target.closest('.hamburg');
+        const isMenuActive = dropdown.classList.contains('active');
+        
+        if (isMenuActive && !isClickInsideMenu && !isClickOnHamburger) {
+            cancel();
+        }
     });
 });
 
