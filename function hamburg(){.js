@@ -1,4 +1,4 @@
-// Wait for DOM to be fully loaded
+// Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Get DOM elements
     const hamburger = document.querySelector('.hamburger');
@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
+            console.log('Hamburger clicked'); // Debug log
             mobileMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
             body.classList.toggle('menu-open');
@@ -63,58 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Smooth scroll for all anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-});
-
-// Text content for the typewriter effect
-const texts = [
-    "DEVELOPER",
-    "CS STUDENT",
-    "PROGRAMMER"
-];
-
-let speed = 100;
-
-const textElements = document.querySelector('.typewriter-text');
-
-let textIndex = 0;
-let characterIndex = 0;
-
-// Function to type text character by character
-function typeWriter(){
-    if(characterIndex < texts[textIndex].length){
-        textElements.innerHTML += texts[textIndex].charAt(characterIndex);
-        characterIndex++;
-        setTimeout(typeWriter, speed);
-    }
-    else{
-        setTimeout(eraseText, 1000);
-    }
-}
-
-// Function to erase text character by character
-function eraseText(){
-    if(textElements.innerHTML.length > 0){
-        textElements.innerHTML = textElements.innerHTML.slice(0, -1);
-        setTimeout(eraseText, 50);
-    }
-    else{
-        textIndex = (textIndex + 1) % texts.length;
-        characterIndex = 0;
-        setTimeout(typeWriter, 500);
-    }
-}
-
-// Start the typewriter effect when the page loads
-window.onload = typeWriter;
+    // Debug log to confirm script is running
+    console.log('Mobile menu script loaded');
+}); 
