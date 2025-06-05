@@ -1,19 +1,21 @@
-// Mobile menu toggle functions
-function hamburg() {
-    const dropdown = document.querySelector('.dropdown');
-    dropdown.style.transform = 'translateY(0)';
-    document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-}
-
-function cancel() {
-    const dropdown = document.querySelector('.dropdown');
-    dropdown.style.transform = 'translateY(-100%)';
-    document.body.style.overflow = ''; // Restore scrolling
-}
-
-// Close menu when clicking on a link
+// Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
+    const dropdown = document.querySelector('.dropdown');
     const menuLinks = document.querySelectorAll('.dropdown .links a');
+
+    // Toggle menu when hamburger is clicked
+    window.hamburg = function() {
+        dropdown.style.transform = 'translateY(0)';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+    }
+
+    // Close menu when X is clicked
+    window.cancel = function() {
+        dropdown.style.transform = 'translateY(-100%)';
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    // Close menu when a link is clicked
     menuLinks.forEach(link => {
         link.addEventListener('click', () => {
             cancel();
