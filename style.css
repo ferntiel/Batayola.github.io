@@ -1,4 +1,52 @@
 /* Base Styles */
+:root {
+    /* Colors */
+    --text-light: #e6f1ff;
+    --text-dark: #0a0a0a;
+    --text-muted: #a8b2d0;
+    --accent-color: #4031c2;
+    --accent-color-light: #5749cd;
+    --accent-hover: #6b8bef;
+    
+    /* Backgrounds */
+    --background-dark: #0a0a0a;
+    --background-light: rgba(255, 255, 255, 0.05);
+    --background-accent: rgba(81, 116, 234, 0.05);
+    
+    /* Borders */
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-accent: rgba(81, 116, 234, 0.2);
+    
+    /* Transitions */
+    --transition-normal: all 0.3s ease;
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Shadows */
+    --shadow-normal: 0 8px 16px -6px rgba(81, 116, 234, 0.3);
+    --shadow-hover: 0 15px 30px -10px rgba(81, 116, 234, 0.2);
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-full: 50%;
+    
+    /* Responsive Breakpoints */
+    --breakpoint-sm: 480px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 884px;
+    --breakpoint-xl: 1024px;
+}
+
+/* Reset & Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,10 +54,36 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) var(--background-dark);
+}
+
 body {
-    background-color: #0a0a0a;
-    color: white;
+    background-color: var(--background-dark);
+    color: var(--text-light);
     line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover);
 }
 
 /* Container Styles */
@@ -40,8 +114,8 @@ nav {
     align-items: center;
     padding: 0 4rem;
     background-color: rgba(10, 25, 47, 0.95);
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -114,7 +188,7 @@ nav {
     position: fixed;
     top: 1rem;
     right: 1.5rem;
-    background-color: rgba(47, 93, 163, 0.941);
+    background-color: rgba(47, 93, 163, 0.81);
     border: 2px solid var(--accent-color);
     border-radius: 50%;
     z-index: 1001;
@@ -124,25 +198,25 @@ nav {
 }
 
 .hamburger .menu-icon {
-    color: var(--accent-color);
+    color: white;
     font-size: 1.8rem;
     transition: all 0.3s ease;
     opacity: 1;
-    text-shadow: 0 0 10px rgba(64, 49, 194, 0.755);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .hamburger:hover {
-    background-color: rgba(68, 68, 200, 0.579);
+    background-color: rgba(8, 8, 123, 0.897);
     transform: translateY(-2px);
 }
 
 .hamburger:hover .menu-icon {
-    color: var(--accent-color);
+    color: white;
     opacity: 1;
 }
 
 .hamburger.active {
-    background-color: var(--accent-color);
+    background-color: rgba(8, 8, 123, 0.897);
 }
 
 .hamburger.active .menu-icon {
@@ -159,12 +233,13 @@ nav {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgb(1, 11, 25);
+    background-color: rgb(16, 17, 27);
     padding-top: 5rem;
     transform: translateY(-100%);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
     overflow-y: auto;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
@@ -607,12 +682,14 @@ section::before {
     gap: 12px;
 }
 
+/* Social Icon */
 .social-icon {
     position: relative;
     width: 45px;
     height: 45px;
     border-radius: 14px;
     background: rgba(81, 116, 234, 0.05);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(81, 116, 234, 0.2);
     display: flex;
@@ -631,7 +708,10 @@ section::before {
 
 .social-icon.github i {
     background: linear-gradient(135deg, #5174ea, #6b8bef);
+    color: transparent;
     -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 8px rgba(81, 116, 234, 0.3));
 }
@@ -644,7 +724,10 @@ section::before {
 
 .social-icon.linkedin i {
     background: linear-gradient(135deg, #0A66C2, #0077b5);
+    color: transparent;
     -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 8px rgba(10, 102, 194, 0.3));
 }
@@ -657,7 +740,10 @@ section::before {
 
 .social-icon.facebook i {
     background: linear-gradient(135deg, #4267B2, #5B7BD5);
+    color: transparent;
     -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 8px rgba(66, 103, 178, 0.3));
 }
@@ -670,7 +756,10 @@ section::before {
 
 .social-icon.instagram i {
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: transparent;
     -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 8px rgba(225, 48, 108, 0.3));
 }
@@ -683,6 +772,26 @@ section::before {
     z-index: 2;
 }
 
+/* Mask Properties Mixin */
+.mask-gradient {
+    -webkit-mask: linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.mask-gradient-double {
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+/* Social Icon Border Effect */
 .social-icon::before {
     content: '';
     position: absolute;
@@ -695,7 +804,10 @@ section::before {
         transparent 50%
     );
     -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -809,6 +921,7 @@ section::before {
     height: 350px;
     position: relative;
     margin: 0 auto;
+    -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     overflow: hidden;
 }
@@ -823,6 +936,7 @@ section::before {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    -webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
@@ -1026,11 +1140,23 @@ section::before {
 .about-card,
 .interest-card,
 .inspiration-card {
-    composes: card-base;
+    background: rgba(81, 116, 234, 0.05);
+    border: 1px solid rgba(81, 116, 234, 0.2);
+    border-radius: 16px;
+    padding: 25px;
+    color: white;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 }
 
-/* Grid base styles */
-.grid-base {
+/* Apply grid base to all grids */
+.skills-grid,
+.about-content,
+.interests-grid,
+.inspiration-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
@@ -1039,16 +1165,11 @@ section::before {
     margin: 0 auto;
 }
 
-/* Apply grid base to all grids */
-.skills-grid,
-.about-content,
-.interests-grid,
-.inspiration-grid {
-    composes: grid-base;
-}
-
-/* Icon base styles */
-.icon-base {
+/* Apply icon base to all icons */
+.skill-card i,
+.about-icon,
+.interest-icon,
+.inspiration-icon {
     width: 60px;
     height: 60px;
     background: rgba(81, 116, 234, 0.1);
@@ -1084,14 +1205,6 @@ section::before {
     transition: all 0.3s ease;
     position: relative;
     z-index: 1;
-}
-
-/* Apply icon base to all icons */
-.skill-card i,
-.about-icon,
-.interest-icon,
-.inspiration-icon {
-    composes: icon-base;
 }
 
 /* Card title styles */
@@ -1391,26 +1504,18 @@ html {
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 2rem;
+    padding: 2rem 0;
 }
 
 .skill-card {
-    background: rgba(81, 116, 234, 0.05);
-    border: 1px solid rgba(81, 116, 234, 0.2);
-    border-radius: 16px;
-    padding: 20px;
-    color: white;
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .skill-card:hover {
@@ -1419,12 +1524,17 @@ html {
     box-shadow: 0 8px 20px -12px rgba(81, 116, 234, 0.3);
 }
 
-.skill-card i {
-    font-size: 2.5rem;
-    color: #5174ea;
-    margin-bottom: 15px;
-    transition: 0.4s ease;
-    opacity: 0.9;
+.skill-card i,
+.about-card i {
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-color-light));
+    color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
 }
 
 .skill-card:hover i {
@@ -1486,7 +1596,6 @@ html {
 }
 
 .level-fill {
-    width: 35%;
     height: 100%;
     background: linear-gradient(90deg, #5174ea, #6b8bef);
     border-radius: 2px;
@@ -2296,17 +2405,18 @@ html {
 }
 
 .tech-item {
-    background: rgba(81, 116, 234, 0.08);
-    color: #5174ea;
+    background: rgba(64, 49, 194, 0.08);
+    color: rgb(64, 49, 194);
     padding: 4px 10px;
     border-radius: 15px;
     font-size: 0.8rem;
-    border: 1px solid rgba(81, 116, 234, 0.15);
+    border: 1px solid rgba(64, 49, 194, 0.15);
     transition: all 0.3s ease;
 }
 
 .gamedev-card:hover .tech-item {
-    background: rgba(81, 116, 234, 0.12);
+    background: rgba(64, 49, 194, 0.12);
+    border-color: rgba(64, 49, 194, 0.3);
 }
 
 .learning-progress {
@@ -2583,6 +2693,7 @@ html {
     opacity: 1;
 }
 
+/* Image Border Effect */
 .image::after {
     content: '';
     position: absolute;
@@ -2597,7 +2708,10 @@ html {
         transparent 60%
     );
     -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -2677,17 +2791,21 @@ html {
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 20px;
-    background: radial-gradient(
-        circle at 50% 50%,
-        rgba(81, 116, 234, 0.15),
-        transparent 70%
-    );
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-mask: linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     filter: blur(20px);
+    background: linear-gradient(45deg, 
+        rgba(64, 49, 194, 0.5), 
+        rgba(87, 73, 205, 0.5), 
+        rgba(111, 98, 217, 0.5)
+    );
     opacity: 0;
     transition: opacity 0.3s ease;
-    pointer-events: none;
-    z-index: 1;
 }
 
 .image:hover + .glow {
@@ -2726,3 +2844,351 @@ html {
         height: 30px;
     }
 }
+
+/* Background Clip Mixins */
+.background-clip-text {
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Social Icons */
+.social-icon.github i,
+.social-icon.linkedin i,
+.social-icon.facebook i,
+.social-icon.instagram i {
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.social-icon.github i {
+    background: linear-gradient(135deg, #5174ea, #6b8bef);
+    filter: drop-shadow(0 0 8px rgba(81, 116, 234, 0.3));
+}
+
+.social-icon.linkedin i {
+    background: linear-gradient(135deg, #0A66C2, #0077b5);
+    filter: drop-shadow(0 0 8px rgba(10, 102, 194, 0.3));
+}
+
+.social-icon.facebook i {
+    background: linear-gradient(135deg, #4267B2, #5B7BD5);
+    filter: drop-shadow(0 0 8px rgba(66, 103, 178, 0.3));
+}
+
+.social-icon.instagram i {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    filter: drop-shadow(0 0 8px rgba(225, 48, 108, 0.3));
+}
+
+/* Mask Properties */
+.image::after,
+.social-icon::before,
+.glow {
+    -webkit-mask-clip: content-box, border-box;
+    mask-clip: content-box, border-box;
+    -webkit-mask-mode: alpha;
+    mask-mode: alpha;
+}
+
+/* Firefox specific mask support */
+@-moz-document url-prefix() {
+    .image::after,
+    .social-icon::before,
+    .glow {
+        mask-composite: subtract;
+    }
+}
+
+/* Safari specific mask support */
+@supports (-webkit-mask: none) and (not (mask: none)) {
+    .image::after,
+    .social-icon::before,
+    .glow {
+        mask-composite: add;
+        -webkit-mask-composite: source-out;
+        mask-composite: exclude;
+    }
+}
+
+/* Cross-browser mask composite support */
+.mask-composite {
+    mask-composite: add;
+    -webkit-mask-composite: source-out;
+    mask-composite: exclude;
+}
+
+/* Text Gradient Mixin */
+.text-gradient {
+    color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Social Icons */
+.social-icon.github i {
+    background: linear-gradient(135deg, #5174ea, #6b8bef);
+    color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px rgba(81, 116, 234, 0.3));
+}
+
+.social-icon.linkedin i {
+    background: linear-gradient(135deg, #0A66C2, #0077b5);
+    color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px rgba(10, 102, 194, 0.3));
+}
+
+.social-icon.facebook i {
+    background: linear-gradient(135deg, #4267B2, #5B7BD5);
+    color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px rgba(66, 103, 178, 0.3));
+}
+
+.social-icon.instagram i {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px rgba(225, 48, 108, 0.3));
+}
+
+/* Skill Card Icons */
+.skill-card i,
+.about-card i {
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-color-light));
+    color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Cross-browser mask composite support */
+.mask-composite {
+    mask-composite: exclude;
+    -webkit-mask-composite: source-out;
+}
+
+/* Apply to elements that need masking */
+.social-icon::before,
+.image::after,
+.glow {
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: add;
+    -webkit-mask-composite: source-out;
+    mask-composite: exclude;
+}
+
+/* Firefox-specific styles */
+@-moz-document url-prefix() {
+    .social-icon::before,
+    .image::after,
+    .glow {
+        mask-composite: subtract;
+    }
+}
+
+/* Webkit/Safari-specific styles */
+@supports (-webkit-mask-composite: source-out) {
+    .social-icon::before,
+    .image::after,
+    .glow {
+        mask-composite: subtract;
+        -webkit-mask-composite: source-out;
+    }
+}
+
+/* Fallback for browsers without mask support */
+@supports not (mask-composite: exclude) {
+    .social-icon::before,
+    .image::after,
+    .glow {
+        border: 1px solid rgba(81, 116, 234, 0.2);
+        background: linear-gradient(
+            135deg,
+            rgba(81, 116, 234, 0.1),
+            rgba(81, 116, 234, 0.05)
+        );
+    }
+}
+
+/* Border effects with mask */
+.border-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2),
+        transparent 50%
+    );
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: source-out;
+    pointer-events: none;
+}
+
+/* Utility Classes */
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.mask-gradient {
+    -webkit-mask: linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0);
+    mask-composite: add;
+    -webkit-mask-composite: source-over;
+    mask-composite: exclude;
+}
+
+.mask-gradient-border {
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: add;
+    -webkit-mask-composite: source-over;
+    mask-composite: exclude;
+}
+
+/* Browser Support */
+@supports (-webkit-mask-composite: source-out) {
+    .mask-gradient-border,
+    .mask-gradient {
+        mask-composite: add;
+        -webkit-mask-composite: source-out;
+        mask-composite: exclude;
+    }
+}
+
+@-moz-document url-prefix() {
+    .mask-gradient-border,
+    .mask-gradient {
+        mask-composite: subtract;
+    }
+}
+
+/* Fallback */
+@supports not (mask-composite: exclude) {
+    .mask-gradient-border,
+    .mask-gradient,
+    .social-icon::before,
+    .image::after,
+    .glow {
+        border: 1px solid rgba(81, 116, 234, 0.2);
+        background: linear-gradient(
+            135deg,
+            rgba(81, 116, 234, 0.1),
+            rgba(81, 116, 234, 0.05)
+        );
+    }
+}
+
+/* Text Gradients */
+.social-icon i,
+.skill-card i,
+.about-card i,
+.glow {
+    background: linear-gradient(45deg, var(--accent-color), var(--accent-color-light));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Border Effects */
+.social-icon::before,
+.image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2),
+        transparent 50%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+    -webkit-mask-composite: source-out;
+    pointer-events: none;
+}
+
+/* Glow Effect */
+.glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: blur(20px);
+    background: linear-gradient(45deg, 
+        rgba(64, 49, 194, 0.5), 
+        rgba(87, 73, 205, 0.5), 
+        rgba(111, 98, 217, 0.5)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Element-specific styles */
+.social-icon::before {
+    border-radius: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image::after {
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(
+        135deg,
+        rgba(81, 116, 234, 0.5),
+        rgba(81, 116, 234, 0.2),
+        rgba(81, 116, 234, 0.1),
+        transparent 60%
+    );
+}
+
+/* End of utility classes */
