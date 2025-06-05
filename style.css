@@ -67,42 +67,105 @@ nav {
     color: #5174ea;
 }
 
-.hamburg {
+.hamburg,
+.cancel {
     display: none;
-    background: none;
+    background: transparent;
     border: none;
+    outline: none;
     color: white;
-    font-size: 1.5rem;
     cursor: pointer;
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+
+.hamburg {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    z-index: 1001;
+}
+
+.cancel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    z-index: 1002;
+}
+
+.hamburg:hover,
+.cancel:hover {
+    color: #5174ea;
+    transform: scale(1.1);
 }
 
 .dropdown {
-    display: none;
-    position: absolute;
-    top: 8vh;
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    background: rgba(10, 10, 10, 0.95);
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+}
+
+.dropdown .links {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+    position: relative;
     padding: 20px;
-    border-bottom: 1px solid rgba(81, 116, 234, 0.1);
 }
 
-.dropdown.active {
-    display: block;
-}
-
-.dropdown a {
-    display: block;
+.dropdown .links a {
     color: white;
     text-decoration: none;
-    padding: 10px 0;
-    text-align: center;
-    transition: 0.3s ease;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
 }
 
-.dropdown a:hover {
+.dropdown .links a:hover {
     color: #5174ea;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 884px) {
+    .nav-container .links {
+        display: none;
+    }
+
+    .hamburg {
+        display: block;
+    }
+
+    .dropdown {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .hamburg,
+    .cancel {
+        font-size: 20px;
+        padding: 6px;
+    }
+
+    .dropdown .links a {
+        font-size: 1.1rem;
+        padding: 8px 16px;
+    }
 }
 
 /* Content Styles */
