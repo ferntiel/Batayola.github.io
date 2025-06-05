@@ -45,12 +45,14 @@ window.addEventListener('resize', () => {
 
 // Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu functionality
     const hamburger = document.querySelector('.hamburger');
     const mobileMenu = document.querySelector('.mobile-menu');
+    const menuIcon = document.querySelector('.menu-icon');
     const body = document.body;
 
-    if (!hamburger || !mobileMenu) {
-        console.error('Hamburger menu elements not found');
+    if (!hamburger || !mobileMenu || !menuIcon) {
+        console.error('Required menu elements not found');
         return;
     }
 
@@ -58,10 +60,33 @@ document.addEventListener('DOMContentLoaded', function() {
     hamburger.addEventListener('click', function(e) {
         e.stopPropagation(); // Prevent click from bubbling to document
         console.log('Hamburger clicked'); // Debug log
+        toggleMenu();
+    });
+
+    // Function to toggle menu state
+    function toggleMenu() {
         hamburger.classList.toggle('active');
         mobileMenu.classList.toggle('active');
         body.classList.toggle('menu-open');
-    });
+        
+        // Toggle menu icon
+        if (mobileMenu.classList.contains('active')) {
+            menuIcon.classList.remove('fa-bars');
+            menuIcon.classList.add('fa-times');
+        } else {
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+    }
+
+    // Function to close menu
+    function closeMenu() {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+    }
 
     // Handle mobile menu links
     const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
@@ -71,9 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             
             // Close menu
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            body.classList.remove('menu-open');
+            closeMenu();
 
             // Smooth scroll to section
             const targetSection = document.querySelector(targetId);
@@ -88,18 +111,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (mobileMenu.classList.contains('active') && 
             !mobileMenu.contains(e.target) && 
             !hamburger.contains(e.target)) {
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            body.classList.remove('menu-open');
+            closeMenu();
         }
     });
 
     // Close menu on window resize
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            body.classList.remove('menu-open');
+            closeMenu();
         }
     });
 
@@ -111,45 +130,3 @@ document.addEventListener('DOMContentLoaded', function() {
         offset: 100
     });
 });
-
-// Text content for the typewriter effect
-const texts = [
-    "DEVELOPER",
-    "CS STUDENT",
-    "PROGRAMMER"
-];
-
-let speed = 100;
-
-const textElements = document.querySelector('.typewriter-text');
-
-let textIndex = 0;
-let characterIndex = 0;
-
-// Function to type text character by character
-function typeWriter(){
-    if(characterIndex < texts[textIndex].length){
-        textElements.innerHTML += texts[textIndex].charAt(characterIndex);
-        characterIndex++;
-        setTimeout(typeWriter, speed);
-    }
-    else{
-        setTimeout(eraseText, 1000);
-    }
-}
-
-// Function to erase text character by character
-function eraseText(){
-    if(textElements.innerHTML.length > 0){
-        textElements.innerHTML = textElements.innerHTML.slice(0, -1);
-        setTimeout(eraseText, 50);
-    }
-    else{
-        textIndex = (textIndex + 1) % texts.length;
-        characterIndex = 0;
-        setTimeout(typeWriter, 500);
-    }
-}
-
-// Start the typewriter effect when the page loads
-window.onload = typeWriter;
