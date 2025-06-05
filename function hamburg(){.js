@@ -1,13 +1,25 @@
 // Mobile menu toggle functions
-function hamburg(){
-    const navbar = document.querySelector('.dropdown');
-    navbar.style.transform = 'translateY(0px)';
+function hamburg() {
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.style.transform = 'translateY(0)';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
 }
 
-function cancel(){
-    const navbar = document.querySelector('.dropdown');
-    navbar.style.transform = 'translateY(-500px)';
+function cancel() {
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.style.transform = 'translateY(-100%)';
+    document.body.style.overflow = ''; // Restore scrolling
 }
+
+// Close menu when clicking on a link
+document.addEventListener('DOMContentLoaded', function() {
+    const menuLinks = document.querySelectorAll('.dropdown .links a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            cancel();
+        });
+    });
+});
 
 // Text content for the typewriter effect
 const texts = [
